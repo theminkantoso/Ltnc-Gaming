@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Shootableenemy/Enemygun.gd" type="Script" id=1]
+[ext_resource path="res://start-assets/enemy.png" type="Texture" id=2]
+
+[node name="Enemygun" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 0, -48, 16, -48, 32, -40, 48, -24, 56, 0, 56, 32, 40, 48, -40, 48, -56, 32, -56, -8, -40, -32, -24, -48 )
+
+[node name="enemy" type="Sprite" parent="."]
+texture = ExtResource( 2 )

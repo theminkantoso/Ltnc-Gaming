@@ -24,7 +24,7 @@ func _ready():
 	#shoot()
 	set_physics_process(true) # Replace with function body.
 	
-func _on_Enemy_detector_body_entered(body: KinematicBody2D) -> void:
+func _on_Enemy_detector_body_entered(body: KinematicBody2D):
 	queue_free()
 	dead()
 
@@ -70,27 +70,10 @@ func rapid_fire():
 	shoot()
 
 func _physics_process(delta):
-	#if Input.is_action_pressed("ui_left"):
-		#motion.x = -speed 
-	#elif Input.is_action_pressed("ui_right"):
-		#motion.x = speed 
-	#else:
-		#motion.x = 0
-	#if Input.is_action_pressed("ui_up"):
-		#motion.y =  jump_power
-	#elif Input.is_action_pressed("ui_down"):
-		#motion.y += sudden_decent
+	
 	motion.y += 10
 	motion = move_and_slide(motion)
-	#if Input.is_action_pressed("angle_up"):
-		#angle.y -= shotspeed *delta
-	#elif Input.is_action_just_released("angle_up"):
-		#angle.y += 0
-	#if Input.is_action_pressed("angle_down"):
-		#angle.y += shotspeed * delta
-	#elif Input.is_action_just_released("angle_down"):
-		#angle.y += 0
-	#angle.y = clamp(angle.y, -sqrt(3)* shotspeed,0 )
+	
 func shoot():
 	var bulletInstance = bullet.instance()
 	bulletInstance.position = Vector2(position.x+ 50,position.y)
@@ -99,4 +82,4 @@ func shoot():
 	get_tree().get_root().add_child(bulletInstance)
 	
 func dead():
-	get_tree().change_scene("res://Worldshot.tscn")# Replace with function body.
+	get_tree().change_scene("res://Worldshot.tscn")
