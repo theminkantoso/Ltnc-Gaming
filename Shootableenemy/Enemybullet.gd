@@ -5,14 +5,15 @@ var rand_generate = RandomNumberGenerator.new()
 #new edit
 
 var shotspeed = 700
-var angle = Vector2(-600,-200)
+var angle = Vector2()
 
 #func _ready():
 	#set_process(true)
 	#set_physics_process(true) 
 	# Replace with function body.
 
-func shoot():
+func shoot(bullet):
+	angle = bullet
 	set_physics_process(true)
 
 

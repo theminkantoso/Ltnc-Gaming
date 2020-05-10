@@ -24,4 +24,10 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stomp"]
 position = Vector2( 0, -56 )
 shape = SubResource( 1 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 4.29153e-06, 15 )
+scale = Vector2( 4.8, 2.5 )
+process_parent = true
+physics_process_parent = true
 [connection signal="body_entered" from="Stomp" to="." method="_on_Stomp_body_entered"]

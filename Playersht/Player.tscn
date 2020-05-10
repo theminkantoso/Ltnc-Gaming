@@ -22,5 +22,9 @@ collision_mask = 18
 
 [node name="Player" type="CollisionPolygon2D" parent="Enemy_detector"]
 polygon = PoolVector2Array( -33.7029, -49.0283, -13.3203, -49.3518, 28.092, -17.6455, 43.6216, -10.2043, 42.0039, 12.7666, 23.5625, 20.2079, -16.8792, 51.5907, -33.0558, 50.2965, -33.3794, 25.3844, -43.0854, 17.6196, -42.7619, -16.0279, -33.3794, -25.0868 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -136 )
+current = true
 [connection signal="area_entered" from="Enemy_detector" to="." method="_on_Enemy_detector_area_entered"]
 [connection signal="body_entered" from="Enemy_detector" to="." method="_on_Enemy_detector_body_entered"]
