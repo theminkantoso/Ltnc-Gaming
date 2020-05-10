@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Playersht/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://start-assets/tileset.png" type="Texture" id=2]
 [ext_resource path="res://Enemyshot1/Enemyshot.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Shootableenemy/Enemygun.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/sprites/purple.png" type="Texture" id=5]
+[ext_resource path="res://Naville-Regular DEMO.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
@@ -76,6 +77,10 @@ points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
 } ]
 0/z_index = 0
 
+[sub_resource type="DynamicFont" id=7]
+size = 30
+font_data = ExtResource( 6 )
+
 [node name="worldshot" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -114,3 +119,25 @@ position = Vector2( 1080, 528 )
 
 [node name="Enemygun2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1576, 272 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 232.0
+margin_top = 120.0
+margin_right = 711.0
+margin_bottom = 458.0
+custom_fonts/font = SubResource( 7 )
+text = "Trai phai len xuong
+space de ban
+
+W/S tang/ ha goc do ban
+
+jump on the top of 
+the white enemy to kill it
+
+The orange enemy can 
+only be killed by bullet
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
