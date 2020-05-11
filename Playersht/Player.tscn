@@ -26,5 +26,16 @@ polygon = PoolVector2Array( -33.7029, -49.0283, -13.3203, -49.3518, 28.092, -17.
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -136 )
 current = true
+
+[node name="Label" type="Label" parent="Camera2D"]
+margin_left = 448.0
+margin_top = -272.0
+margin_right = 488.0
+margin_bottom = -241.0
+text = "0
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="area_entered" from="Enemy_detector" to="." method="_on_Enemy_detector_area_entered"]
 [connection signal="body_entered" from="Enemy_detector" to="." method="_on_Enemy_detector_body_entered"]

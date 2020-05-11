@@ -17,7 +17,7 @@ var sudden_decent = 400
 var shotspeed = 500
 
 var angle = Vector2(shotspeed * 0.6, 0)
-
+var count = 0
 
 func _ready():
 	set_process(true)
@@ -44,11 +44,11 @@ func _input(event):
 	elif Input.is_action_pressed("ui_down"):
 		motion.y += sudden_decent
 	if Input.is_action_pressed("angle_up"):
-		angle.y -= shotspeed * (sqrt(3) / 10)
+		angle.y -= shotspeed * (sqrt(3) / 4)
 	elif Input.is_action_just_released("angle_up"):
 		angle.y += 0
 	if Input.is_action_pressed("angle_down"):
-		angle.y += shotspeed * (sqrt(3) / 10)
+		angle.y += shotspeed * (sqrt(3) / 4)
 	elif Input.is_action_just_released("angle_down"):
 		angle.y += 0
 	angle.y = clamp(angle.y, -sqrt(3)* shotspeed,0 )
@@ -60,17 +60,13 @@ func _process(delta):
 	elif(waited <= delay):
 		waited += delta
 		
-
-
-func fire_once():
-	shoot()
-	shooting = false
 	
 func rapid_fire():
 	shoot()
 
 func _physics_process(delta):
-	
+	var countno = get_node("Camera2D/Label")
+	countno.text = str(count)
 	motion.y += 10
 	motion = move_and_slide(motion)
 	
@@ -80,6 +76,9 @@ func shoot():
 	#new edit
 	bulletInstance.shoot(angle)
 	get_tree().get_root().add_child(bulletInstance)
-	
+	count += 1
+	if (count == 35):
+		get_parent().get_node("Destroyable2").queue_free()
+		
 func dead():
 	get_tree().change_scene("res://Worldshot.tscn")
