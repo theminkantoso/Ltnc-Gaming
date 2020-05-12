@@ -18,7 +18,7 @@ var shotspeed = 500
 
 var angle = Vector2(shotspeed * 0.6, 0)
 var count = 0
-
+var coincount = 0
 func _ready():
 	set_process(true)
 	#shoot()
@@ -28,6 +28,10 @@ func _on_Enemy_detector_body_entered(body: KinematicBody2D):
 	queue_free()
 	dead()
 
+
+func _on_Enemy_detector_area_entered(area: Area2D):
+	coincount += 1
+	
 func _input(event):
 	if event.is_action_pressed("fire"):
 		shooting = true
@@ -66,7 +70,7 @@ func rapid_fire():
 
 func _physics_process(delta):
 	var countno = get_node("Camera2D/Label")
-	countno.text = str(count)
+	countno.text = str(coincount)
 	motion.y += 10
 	motion = move_and_slide(motion)
 	
@@ -82,3 +86,8 @@ func shoot():
 		
 func dead():
 	get_tree().change_scene("res://Worldshot.tscn")
+
+
+
+
+
