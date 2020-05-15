@@ -24,8 +24,7 @@ func _physics_process(delta):
 	var collide = move_and_collide(angle * delta)
 	
 	#move(velocity * delta) 
-	if(collide):
-		collide.get_collider().queue_free() #pha huy doi thu
-		queue_free() #pha huy chinh vien dan
+	if(collide): #pha huy doi thu
+		get_tree().reload_current_scene() #pha huy chinh vien dan
 		
 

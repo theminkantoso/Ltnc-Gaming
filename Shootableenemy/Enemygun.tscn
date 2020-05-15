@@ -13,3 +13,10 @@ polygon = PoolVector2Array( 0, -48, 16, -48, 32, -40, 48, -24, 56, 0, 56, 32, 40
 
 [node name="enemy" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( -3.8147e-06, 19 )
+scale = Vector2( 5.6, 2.9 )
+process_parent = true
+physics_process_parent = true
+[connection signal="screen_entered" from="VisibilityEnabler2D" to="." method="_on_VisibilityEnabler2D_screen_entered"]

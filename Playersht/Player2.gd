@@ -18,19 +18,19 @@ var shotspeed = 500
 var angle = Vector2(shotspeed * 0.6, 0)
 var shotlimit = 50
 var coincount = 0
-var coinlimit = 16
+var coinlimit = 13
+var dead = false
 func _ready():
 	set_process(true)
 	#shoot()
 	set_physics_process(true) # Replace with function body.
 	
 func _on_Enemy_detector_body_entered(body: KinematicBody2D) -> void:
-	queue_free()
 	dead()
+func dead() -> void:	
+	get_tree().reload_current_scene()
 
-func dead():	
-	get_tree().change_scene("res://Levels/Levelone.tscn")	
-	
+
 
 func _on_Enemy_detector_area_entered(area: Area2D):
 	coincount += 1
@@ -60,7 +60,8 @@ func _input(event):
 	elif Input.is_action_just_released("angle_down"):
 		angle.y += 0
 	angle.y = clamp(angle.y, -sqrt(3)* shotspeed,0 )
-
+	if Input.is_action_just_pressed("restart"):
+		get_tree().change_scene("res://Respawn/Respawn2.tscn")
 func _process(delta):
 	if(shooting && waited > delay):
 		rapid_fire()
@@ -79,7 +80,7 @@ func _physics_process(delta):
 	motion = move_and_slide(motion)
 func check():
 	if (coincount == coinlimit):
-		get_tree().get_root().get_node("Levelone/Barrier").queue_free()
+		get_tree().get_root().get_node("Leveltwo/Barrier").queue_free()
 #func check():
 	#var barrierInstance = barrier.instance()
 	#if (coincount >= coinlimit):
@@ -97,6 +98,6 @@ func shoot():
 		get_tree().get_root().add_child(bulletInstance)
 		shotlimit -= 1
 	
-	
+
 	
 

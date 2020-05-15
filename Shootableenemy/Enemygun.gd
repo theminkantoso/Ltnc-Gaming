@@ -2,14 +2,17 @@ extends KinematicBody2D
 
 var bullet = preload("res://Shootableenemy/Enemybullet.tscn")
 
-var delay = 0.2
+var delay = 0.3
 var waited = 0
 var bullet_1 = Vector2(500,-300)
 var bullet_2 = Vector2(-500,-300)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_physics_process(true) # Replace with function body.
+	
+	set_process(false)
+
+func _on_VisibilityEnabler2D_screen_entered():
 	set_process(true)
 func _process(delta):
 	if(waited > delay):
@@ -36,3 +39,10 @@ func shoot():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+
+
+
+
+
