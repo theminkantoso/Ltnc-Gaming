@@ -22,8 +22,10 @@ func _physics_process(delta):
 	
 	#move(velocity * delta) 
 	if(collide):
-		collide.get_collider().queue_free() #pha huy doi thu
-		queue_free() #pha huy chinh vien dan
-		
+		if collide.get_collider() is KinematicBody2D:
+			collide.get_collider().queue_free() #pha huy doi thu
+			queue_free() #pha huy chinh vien dan
+		else:
+			queue_free()
 
 			

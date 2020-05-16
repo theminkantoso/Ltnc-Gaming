@@ -143,7 +143,7 @@ tile_data = PoolIntArray( -458752, 3, 0, -458751, 2, 0, -458750, 2, 0, -458749, 
 position = Vector2( 544, 472 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 216, 176 )
+position = Vector2( 222.475, 87.5028 )
 
 [node name="Coin" parent="." instance=ExtResource( 4 )]
 position = Vector2( 720, 440 )
@@ -218,5 +218,5 @@ position = Vector2( 5576, -104 )
 position = Vector2( 6112, -56 )
 
 [node name="Barrier" parent="." instance=ExtResource( 5 )]
-position = Vector2( 5944, -216 )
+position = Vector2( 5952.63, -213.842 )
 scale = Vector2( 0.298164, 0.486712 )
