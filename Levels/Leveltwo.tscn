@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/sprites/ground-clipart-transparent-10-original.png" type="Texture" id=1]
 [ext_resource path="res://Playersht/Player2.tscn" type="PackedScene" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Shootableenemy/Enemygun.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Coin/Barrier.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/sprites/6905241_preview.png" type="Texture" id=7]
+[ext_resource path="res://start-assets/UI_theme.tres" type="Theme" id=8]
+[ext_resource path="res://MenuScreen/PauseMenu.gd" type="Script" id=9]
+[ext_resource path="res://MenuScreen/PauseMenu.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -95,6 +98,19 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 648.0 ],
 "_edit_vertical_guides_": [ 6848.0, -952.0, -248.0 ]
+}
+
+[node name="Pause" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="PauseMenu" type="Control" parent="Pause" instance=ExtResource( 10 )]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 8 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

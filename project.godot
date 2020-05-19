@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Ultimate"
-run/main_scene="res://Levels/Levelone.tscn"
+run/main_scene="res://MenuScreen/MainScreen.tscn"
 config/icon="res://icon.png"
 
 [input]
