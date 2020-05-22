@@ -1,9 +1,38 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/sprites/pngguru.com.png" type="Texture" id=1]
 [ext_resource path="res://Enemyshot1/Enemyshot.gd" type="Script" id=2]
 
+[sub_resource type="Animation" id=1]
+resource_name = "Glamore"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 0.277392 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.972549, 0.054902, 0.054902, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pnggurucom:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0 ]
+}
+
 [node name="Enemy" type="KinematicBody2D"]
+modulate = Color( 0.982469, 0.396449, 0.396449, 1 )
 collision_layer = 2
 collision_mask = 4
 script = ExtResource( 2 )
@@ -12,6 +41,7 @@ script = ExtResource( 2 )
 polygon = PoolVector2Array( 0, -40, 16, -40, 32, -24, 40, -8, 40, 8, 32, 24, 16, 40, 0, 40, -16, 40, -32, 24, -40, 8, -40, -8, -32, -24, -16, -40 )
 
 [node name="pnggurucom" type="Sprite" parent="."]
+rotation = 2.00626
 scale = Vector2( 0.129984, 0.14 )
 texture = ExtResource( 1 )
 
@@ -20,3 +50,7 @@ position = Vector2( 1.43051e-06, 15 )
 scale = Vector2( 4, 2.5 )
 process_parent = true
 physics_process_parent = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Glamore"
+anims/Glamore = SubResource( 1 )
