@@ -38,7 +38,7 @@ collision_mask = 4
 script = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 0, -40, 16, -40, 32, -24, 40, -8, 40, 8, 32, 24, 16, 40, 0, 40, -16, 40, -32, 24, -40, 8, -40, -8, -32, -24, -16, -40 )
+polygon = PoolVector2Array( 0, -40, 15.6488, -34.3681, 32, -24, 40, -8, 40, 8, 32, 24, 14.112, 36.017, -0.0264435, 36.017, -10.784, 34.7875, -28.9181, 24.03, -40, 8, -40, -8, -32, -24, -20.0047, -35.9049 )
 
 [node name="pnggurucom" type="Sprite" parent="."]
 rotation = 2.00626
