@@ -18,7 +18,7 @@ var shotspeed = 500
 var angle = Vector2(shotspeed * 0.6, 0)
 var shotlimit = 50
 var coincount = 0
-var coinlimit = 17
+var coinlimit = 16
 var dead = false
 func _ready():
 	set_process(true)

@@ -1,0 +1,114 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://UserInterface/QuitButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UserInterface/LevelOneButton.gd" type="Script" id=2]
+[ext_resource path="res://UserInterface/Title.tscn" type="PackedScene" id=3]
+[ext_resource path="res://start-assets/background.png" type="Texture" id=4]
+[ext_resource path="res://UserInterface/QuitButton.gd" type="Script" id=5]
+[ext_resource path="res://UserInterface/BackButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://start-assets/UI_theme.tres" type="Theme" id=7]
+[ext_resource path="res://UserInterface/LevelButton.gd" type="Script" id=8]
+[ext_resource path="res://UserInterface/PlayButton.gd" type="Script" id=9]
+[ext_resource path="res://UserInterface/LevelTwoButton.gd" type="Script" id=10]
+
+[node name="MainScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 1.0024, 1.03617 )
+theme = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="." instance=ExtResource( 3 )]
+margin_top = 91.2104
+margin_bottom = 134.21
+text = "GAME"
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -224.5
+margin_top = -89.5
+margin_right = 224.5
+margin_bottom = 98.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="Menu"]
+margin_right = 449.0
+margin_bottom = 37.0
+text = "Play"
+script = ExtResource( 9 )
+
+[node name="LevelButton" type="Button" parent="Menu"]
+margin_top = 41.0
+margin_right = 449.0
+margin_bottom = 78.0
+text = "Level"
+script = ExtResource( 8 )
+
+[node name="QuitButton" parent="Menu" instance=ExtResource( 1 )]
+margin_top = 82.0
+margin_right = 449.0
+margin_bottom = 119.0
+script = ExtResource( 5 )
+
+[node name="Menu2" type="VBoxContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -226.546
+margin_top = -89.5
+margin_right = 222.454
+margin_bottom = 162.5
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelOneButton" type="Button" parent="Menu2"]
+margin_right = 449.0
+margin_bottom = 60.0
+size_flags_vertical = 3
+text = "Level 1"
+script = ExtResource( 2 )
+
+[node name="LevelTwoButton" type="Button" parent="Menu2"]
+margin_top = 64.0
+margin_right = 449.0
+margin_bottom = 124.0
+size_flags_vertical = 3
+text = "Level 2"
+script = ExtResource( 10 )
+
+[node name="BackButton" parent="Menu2" instance=ExtResource( 6 )]
+margin_top = 128.0
+margin_bottom = 188.0
+
+[node name="QuitButton" parent="Menu2" instance=ExtResource( 1 )]
+margin_top = 192.0
+margin_right = 449.0
+margin_bottom = 252.0
+size_flags_vertical = 3
+script = ExtResource( 5 )
+[connection signal="pressed" from="Menu/PlayButton" to="Menu/PlayButton" method="_on_PlayButton_pressed"]
+[connection signal="button_up" from="Menu/LevelButton" to="Menu/LevelButton" method="_on_LevelButton_button_up"]
+[connection signal="button_up" from="Menu/QuitButton" to="Menu/QuitButton" method="_on_QuitButton_button_up"]
+[connection signal="button_up" from="Menu2/LevelOneButton" to="Menu2/LevelOneButton" method="_on_LevelOneButton_button_up"]
+[connection signal="button_up" from="Menu2/LevelTwoButton" to="Menu2/LevelTwoButton" method="_on_LevelTwoButton_button_up"]
+[connection signal="button_up" from="Menu2/QuitButton" to="Menu2/QuitButton" method="_on_QuitButton_button_up"]
