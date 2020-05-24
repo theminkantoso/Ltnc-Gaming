@@ -10,10 +10,8 @@ var bullet_2 = Vector2(-500,-300)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	set_process(false)
-
-func _on_VisibilityEnabler2D_screen_entered():
 	set_process(true)
+
 func _process(delta):
 	if(waited > delay):
 		rapid_fire()

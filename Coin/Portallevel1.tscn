@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/sprites/pngwing.com.png" type="Texture" id=1]
 [ext_resource path="res://Coin/Portallevel1.gd" type="Script" id=2]
@@ -9,7 +9,35 @@ radius = 80.0
 height = 112.0
 
 [sub_resource type="Animation" id=2]
-resource_name = "Fadein"
+resource_name = "Appeal"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 0.329877, 0.353553 ),
+"update": 0,
+"values": [ 0.0, 5.0, -5.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0627451, 0.0901961, 0.752941, 1 ), Color( 1, 1, 1, 1 ), Color( 0.929412, 0.0784314, 0.0784314, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
 tracks/0/interp = 1
@@ -35,8 +63,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Start"
+[sub_resource type="Animation" id=4]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
@@ -64,6 +91,8 @@ tracks/1/keys = {
 }
 
 [node name="Portal" type="Area2D"]
+modulate = Color( 0.929412, 0.0784314, 0.0784314, 1 )
+rotation = -0.0872665
 monitorable = false
 collision_layer = 0
 script = ExtResource( 2 )
@@ -93,7 +122,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Start"
-anims/Fadein = SubResource( 2 )
-anims/Start = SubResource( 3 )
+autoplay = "Appeal"
+anims/Appeal = SubResource( 2 )
+anims/Fadein = SubResource( 3 )
+anims/Start = SubResource( 4 )
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

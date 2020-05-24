@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Playersht/Player1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/ground-clipart-transparent-10-transparent.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Coin/Barrier.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Coin/Portallevel1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://start-assets/background.png" type="Texture" id=7]
+[ext_resource path="res://MenuScreen/PauseMenu.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
@@ -120,6 +121,11 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 197.889 ],
 "_edit_vertical_guides_": [ 6287.52 ]
 }
+
+[node name="Pause" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="PauseMenu" parent="Pause" instance=ExtResource( 8 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -5

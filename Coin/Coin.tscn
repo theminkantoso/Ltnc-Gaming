@@ -22,14 +22,40 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, 15 ), Vector2( 0, -15 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.112508, 1.6 ),
+"transitions": PoolRealArray( 1, 0.287175 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.952941, 0.54902, 0.027451, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("coin:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0, 0.0 ]
+}
 
 [node name="Coin" type="Area2D"]
+modulate = Color( 0.954963, 0.5684, 0.0692437, 1 )
 position = Vector2( 0, 10 )
 collision_layer = 32
 script = ExtResource( 2 )
 
 [node name="coin" type="Sprite" parent="."]
-position = Vector2( 0, 15 )
+modulate = Color( 0.994327, 0.988655, 0.84999, 1 )
+rotation = 0.251017
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
