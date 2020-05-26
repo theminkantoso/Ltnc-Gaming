@@ -18,14 +18,9 @@ const shotspeed = 500
 var angle = Vector2(shotspeed * 0.6, 0)
 var shotlimit = 50
 var coincount = 0
-<<<<<<< HEAD
-var coinlimit = 17
-var dead = false
-=======
-var coinlimit = 13
+var coinlimit = 16
 var left = false
 var index = 0
->>>>>>> b60c8be2abd362fae4bbd2a5d0632977246b5bcc
 func _ready():
 	set_process(true)
 	#shoot()
@@ -99,7 +94,7 @@ func _physics_process(delta):
 	motion = move_and_slide(motion)
 func check():
 	if (coincount == coinlimit):
-		get_tree().get_root().get_node("Levelone/Barrier").queue_free()
+		get_tree().get_root().get_node("Levelthree/Barrier").queue_free()
 #func check():
 	#var barrierInstance = barrier.instance()
 	#if (coincount >= coinlimit):

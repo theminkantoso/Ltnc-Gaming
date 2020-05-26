@@ -13,13 +13,14 @@ var shooting = false
 var waited = 0
 var sudden_decent = 400
 #new
-var shotspeed = 500
+const shotspeed = 500
 
 var angle = Vector2(shotspeed * 0.6, 0)
 var shotlimit = 50
 var coincount = 0
 var coinlimit = 13
-var dead = false
+var left = false
+var index = 0
 func _ready():
 	set_process(true)
 	#shoot()
@@ -42,15 +43,29 @@ func _input(event):
 	elif event.is_action_released("fire"):
 		shooting = false
 	if Input.is_action_pressed("ui_left"):
+		$"Fly (2)".flip_h = true
+		left = true
 		motion.x = -speed 
 	elif Input.is_action_pressed("ui_right"):
+		$"Fly (2)".flip_h = false
+		left = false
 		motion.x = speed 
 	else:
 		motion.x = 0
 	if Input.is_action_pressed("ui_up"):
+		if(left == false):
+			$"Fly (2)".rotation_degrees = -20
+		else:
+			$"Fly (2)".rotation_degrees = 20
 		motion.y =  jump_power
 	elif Input.is_action_pressed("ui_down"):
+		if(left == false):
+			$"Fly (2)".rotation_degrees = 20
+		else:
+			$"Fly (2)".rotation_degrees = -20
 		motion.y += sudden_decent
+	else:
+		$"Fly (2)".rotation_degrees = 0
 	if Input.is_action_pressed("angle_up"):
 		angle.y -= shotspeed * (sqrt(3) / 4)
 	elif Input.is_action_just_released("angle_up"):
@@ -60,8 +75,7 @@ func _input(event):
 	elif Input.is_action_just_released("angle_down"):
 		angle.y += 0
 	angle.y = clamp(angle.y, -sqrt(3)* shotspeed,0 )
-	if Input.is_action_just_pressed("restart"):
-		get_tree().change_scene("res://Respawn/Respawn2.tscn")
+	
 func _process(delta):
 	if(shooting && waited > delay):
 		rapid_fire()
@@ -80,24 +94,22 @@ func _physics_process(delta):
 	motion = move_and_slide(motion)
 func check():
 	if (coincount == coinlimit):
-		get_tree().get_root().get_node("Leveltwo/Barrier").queue_free()
+		get_tree().get_root().get_node("Levelfive/Barrier").queue_free()
 #func check():
 	#var barrierInstance = barrier.instance()
 	#if (coincount >= coinlimit):
 		#barrierInstance.queue_free()
-
-
-			
-	
-		
 func shoot():
 	if(shotlimit > 0):
 		var bulletInstance = bullet.instance()
-		bulletInstance.position = Vector2(position.x+ 60,position.y)
+		if(left == false):
+			index = 60
+			angle.x = shotspeed * 0.6
+		else:
+			index = - 60
+			angle.x = shotspeed * 0.6 * -1
+		bulletInstance.position = Vector2(position.x+ index,position.y)
 		bulletInstance.shoot(angle)
 		get_tree().get_root().add_child(bulletInstance)
 		shotlimit -= 1
 	
-
-	
-

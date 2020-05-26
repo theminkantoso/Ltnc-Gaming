@@ -4,7 +4,7 @@
 [ext_resource path="res://Playersht/Player2.gd" type="Script" id=2]
 
 [node name="Player" type="KinematicBody2D"]
-collision_mask = 90
+collision_mask = 82
 script = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -25,10 +25,11 @@ polygon = PoolVector2Array( -4, -40, 12, -40, 16, -32, 20, -20, 24, -16, 44, -16
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -64 )
 current = true
+zoom = Vector2( 1.2, 1.2 )
 limit_left = 0
-limit_top = -596
-limit_right = 6848
-limit_bottom = 650
+limit_top = -585
+limit_right = 4897
+limit_bottom = 615
 
 [node name="Label" type="Label" parent="Camera2D"]
 margin_left = -120.0

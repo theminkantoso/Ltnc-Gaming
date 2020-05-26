@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/sprites/Fly (2).png" type="Texture" id=1]
-[ext_resource path="res://Playersht/Player2.gd" type="Script" id=2]
+[ext_resource path="res://Playersht/Player5.gd" type="Script" id=2]
 
 [node name="Player" type="KinematicBody2D"]
-collision_mask = 90
+collision_mask = 82
 script = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -25,10 +25,11 @@ polygon = PoolVector2Array( -4, -40, 12, -40, 16, -32, 20, -20, 24, -16, 44, -16
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -64 )
 current = true
+zoom = Vector2( 1.2, 1.2 )
 limit_left = 0
-limit_top = -752
-limit_right = 4773
-limit_bottom = 603
+limit_top = -762
+limit_right = 4757
+limit_bottom = 605
 
 [node name="Label" type="Label" parent="Camera2D"]
 margin_left = -120.0

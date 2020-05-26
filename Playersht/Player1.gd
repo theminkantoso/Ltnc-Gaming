@@ -31,7 +31,7 @@ func _on_Enemy_detector_body_entered(body: KinematicBody2D) -> void:
 	dead()
 
 func dead():	
-	get_tree().change_scene("res://Levels/Levelone.tscn")	
+	get_tree().reload_current_scene()
 	
 
 func _on_Enemy_detector_area_entered(area: Area2D):

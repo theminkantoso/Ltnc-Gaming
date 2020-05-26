@@ -6,7 +6,7 @@
 [ext_resource path="res://Coin/Coin.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Coin/Barrier.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Coin/Portallevel1.tscn" type="PackedScene" id=6]
-[ext_resource path="res://start-assets/background.png" type="Texture" id=7]
+[ext_resource path="res://start-assets/atmosphere-sky-space-astronomy-night-space-png-pic.jpg" type="Texture" id=7]
 [ext_resource path="res://MenuScreen/PauseMenu.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -134,6 +134,7 @@ layer = -5
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 7 )
+stretch_mode = 7
 __meta__ = {
 "_edit_use_anchors_": false
 }
