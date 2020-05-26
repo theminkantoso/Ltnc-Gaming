@@ -22,8 +22,7 @@ margin_top = 212.0
 margin_right = 1031.0
 margin_bottom = 428.0
 custom_fonts/font = SubResource( 1 )
-text = "You died
-Press \"ENTER\" to restart"
+text = "Toang"
 align = 1
 valign = 1
 __meta__ = {
