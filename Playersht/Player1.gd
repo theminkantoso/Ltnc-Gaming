@@ -20,6 +20,8 @@ var shotlimit = 50
 var coincount = 0
 var coinlimit = 16
 var left = false
+var jump = false
+var decent = false
 var index = 0
 func _ready():
 	set_process(true)
@@ -31,6 +33,7 @@ func _on_Enemy_detector_body_entered(body: KinematicBody2D) -> void:
 	dead()
 
 func dead():	
+	
 	get_tree().reload_current_scene()
 	
 
@@ -44,28 +47,24 @@ func _input(event):
 	elif event.is_action_released("fire"):
 		shooting = false
 	if Input.is_action_pressed("ui_left"):
-		$"Fly (2)".flip_h = true
 		left = true
 		motion.x = -speed 
 	elif Input.is_action_pressed("ui_right"):
-		$"Fly (2)".flip_h = false
 		left = false
 		motion.x = speed 
 	else:
 		motion.x = 0
 	if Input.is_action_pressed("ui_up"):
-		if(left == false):
-			$"Fly (2)".rotation_degrees = -20
-		else:
-			$"Fly (2)".rotation_degrees = 20
+		jump = true
+		decent = false
 		motion.y =  jump_power
 	elif Input.is_action_pressed("ui_down"):
-		if(left == false):
-			$"Fly (2)".rotation_degrees = 20
-		else:
-			$"Fly (2)".rotation_degrees = -20
+		decent = true
+		jump = false
 		motion.y += sudden_decent
 	else:
+		jump = false
+		decent = false
 		$"Fly (2)".rotation_degrees = 0
 	if Input.is_action_pressed("angle_up"):
 		angle.y -= shotspeed * (sqrt(3) / 4)
@@ -76,7 +75,23 @@ func _input(event):
 	elif Input.is_action_just_released("angle_down"):
 		angle.y += 0
 	angle.y = clamp(angle.y, -sqrt(3)* shotspeed,0 )
-
+	animation_change(left, jump, decent)
+func animation_change(left, jump, decent):
+	if(left == true):
+		$"Fly (2)".flip_h = true
+	if(left == false):
+		$"Fly (2)".flip_h = false
+	if(jump == true && decent == false):
+		if(left == false):
+			$"Fly (2)".rotation_degrees = -20
+		else:
+			$"Fly (2)".rotation_degrees = 20
+	if(jump == false && decent == true):
+		if(left == false):
+			$"Fly (2)".rotation_degrees = 20
+		else:
+			$"Fly (2)".rotation_degrees = -20
+			
 func _process(delta):
 	if(shooting && waited > delay):
 		rapid_fire()
@@ -91,7 +106,7 @@ func rapid_fire():
 func _physics_process(delta):
 	var countno = get_node("Camera2D/Label")
 	countno.text = "Coin(s): " + str(coincount) + "   Shots remaining: " + str(shotlimit)
-	motion.y += 10
+	motion.y += gravity
 	motion = move_and_slide(motion)
 func check():
 	if (coincount == coinlimit):
@@ -110,7 +125,8 @@ func shoot():
 		bulletInstance.shoot(angle)
 		get_tree().get_root().add_child(bulletInstance)
 		shotlimit -= 1
-	
+		var musicnode = $Sound/Shot
+		musicnode.play()
 	
 	
 
