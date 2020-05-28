@@ -5,7 +5,7 @@
 [node name="ChooseLevelButton" type="Button"]
 margin_right = 449.0
 margin_bottom = 24.0
-custom_colors/font_color = Color( 0.333333, 0.682353, 0.337255, 1 )
+custom_colors/font_color = Color( 1, 0.741176, 0.176471, 1 )
 text = "Level"
 flat = true
 script = ExtResource( 1 )

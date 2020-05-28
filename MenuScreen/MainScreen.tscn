@@ -34,16 +34,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -363.0
-margin_top = -133.545
+margin_top = -171.368
 margin_right = 366.0
-margin_bottom = 150.455
+margin_bottom = 112.632
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="Menu"]
 margin_right = 729.0
-margin_bottom = 104.0
+margin_bottom = 102.0
 size_flags_vertical = 3
 texture = ExtResource( 11 )
 __meta__ = {
@@ -51,27 +51,27 @@ __meta__ = {
 }
 
 [node name="PlayButton" type="Button" parent="Menu"]
-margin_top = 108.0
+margin_top = 106.0
 margin_right = 729.0
-margin_bottom = 164.0
+margin_bottom = 162.0
 size_flags_vertical = 3
-custom_colors/font_color = Color( 0.313726, 0.909804, 0.419608, 1 )
+custom_colors/font_color = Color( 1, 0.741176, 0.176471, 1 )
 text = "PLAY"
 flat = true
 script = ExtResource( 9 )
 
 [node name="LevelButton" type="Button" parent="Menu"]
-margin_top = 168.0
+margin_top = 166.0
 margin_right = 729.0
-margin_bottom = 224.0
+margin_bottom = 222.0
 size_flags_vertical = 3
-custom_colors/font_color = Color( 0.313726, 0.909804, 0.419608, 1 )
+custom_colors/font_color = Color( 1, 0.741176, 0.176471, 1 )
 text = "Level"
 flat = true
 script = ExtResource( 8 )
 
 [node name="QuitButton" parent="Menu" instance=ExtResource( 1 )]
-margin_top = 228.0
+margin_top = 226.0
 margin_right = 729.0
 margin_bottom = 284.0
 size_flags_vertical = 3
@@ -129,14 +129,12 @@ Level_Path = "res://Levels/Levelfive.tscn"
 [node name="BackButton" parent="Menu2" instance=ExtResource( 6 )]
 margin_top = 300.0
 margin_bottom = 356.0
-custom_colors/font_color = Color( 0.333333, 0.682353, 0.337255, 1 )
 
 [node name="QuitButton" parent="Menu2" instance=ExtResource( 1 )]
 margin_top = 360.0
 margin_right = 449.0
 margin_bottom = 420.0
 size_flags_vertical = 3
-custom_colors/font_color = Color( 0.333333, 0.682353, 0.337255, 1 )
 script = ExtResource( 5 )
 [connection signal="pressed" from="Menu/PlayButton" to="Menu/PlayButton" method="_on_PlayButton_pressed"]
 [connection signal="button_up" from="Menu/LevelButton" to="Menu/LevelButton" method="_on_LevelButton_button_up"]
