@@ -1,17 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://UserInterface/Title.tscn" type="PackedScene" id=1]
+[ext_resource path="res://start-assets/end_image.png" type="Texture" id=1]
 [ext_resource path="res://UserInterface/QuitButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UserInterface/QuitButton.gd" type="Script" id=3]
-[ext_resource path="res://start-assets/background.png" type="Texture" id=4]
+[ext_resource path="res://start-assets/background_endMenu.jpg" type="Texture" id=4]
 [ext_resource path="res://start-assets/UI_theme.tres" type="Theme" id=5]
 [ext_resource path="res://UserInterface/BackButton.tscn" type="PackedScene" id=6]
-[ext_resource path="res://start-assets/montserrat_extrabold.otf" type="DynamicFontData" id=7]
-[ext_resource path="res://UserInterface/PlayButton.gd" type="Script" id=8]
-
-[sub_resource type="DynamicFont" id=1]
-size = 36
-font_data = ExtResource( 7 )
+[ext_resource path="res://start-assets/end_image_2.png" type="Texture" id=7]
+[ext_resource path="res://UserInterface/PlayButton.tscn" type="PackedScene" id=8]
 
 [node name="EndScreen" type="Control"]
 anchor_right = 1.0
@@ -26,42 +22,54 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 4 )
 expand = true
-
-[node name="Title" parent="." instance=ExtResource( 1 )]
-margin_left = -375.5
-margin_top = 104.69
-margin_right = 375.5
-margin_bottom = 149.69
-custom_fonts/font = SubResource( 1 )
-text = "Congratulation, you finished the game!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Menu" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -224.5
-margin_top = -54.8312
-margin_right = 224.5
-margin_bottom = 124.169
+margin_left = -402.0
+margin_top = -164.42
+margin_right = 402.0
+margin_bottom = 240.58
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayButton" type="Button" parent="Menu"]
-margin_right = 449.0
-margin_bottom = 57.0
-size_flags_vertical = 3
-text = "Play Again"
-script = ExtResource( 8 )
+[node name="TextureRect" type="TextureRect" parent="Menu"]
+margin_right = 804.0
+margin_bottom = 104.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Menu"]
+margin_top = 108.0
+margin_right = 804.0
+margin_bottom = 212.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" parent="Menu" instance=ExtResource( 8 )]
+margin_top = 216.0
+margin_right = 804.0
+margin_bottom = 276.0
 
 [node name="BackButton" parent="Menu" instance=ExtResource( 6 )]
+margin_top = 280.0
+margin_right = 804.0
+margin_bottom = 340.0
 
 [node name="QuitButton" parent="Menu" instance=ExtResource( 2 )]
-margin_top = 122.0
-margin_right = 449.0
-margin_bottom = 179.0
+margin_top = 344.0
+margin_right = 804.0
+margin_bottom = 405.0
 size_flags_vertical = 3
 script = ExtResource( 3 )
-[connection signal="button_up" from="Menu/PlayButton" to="Menu/PlayButton" method="_on_PlayButton_button_up"]
 [connection signal="button_up" from="Menu/QuitButton" to="Menu/QuitButton" method="_on_QuitButton_button_up"]

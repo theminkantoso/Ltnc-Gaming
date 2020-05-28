@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://UserInterface/QuitButton.gd" type="Script" id=1]
-[ext_resource path="res://UserInterface/Title.tscn" type="PackedScene" id=2]
+[ext_resource path="res://start-assets/Artiste Std.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://UserInterface/BackButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UserInterface/QuitButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://start-assets/UI_theme.tres" type="Theme" id=5]
 [ext_resource path="res://UserInterface/RetryButton.gd" type="Script" id=6]
 [ext_resource path="res://MenuScreen/PauseMenu.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+font_data = ExtResource( 2 )
 
 [node name="PauseMenu" type="Control"]
 pause_mode = 2
@@ -30,10 +34,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" parent="PauseOverlay" instance=ExtResource( 2 )]
-margin_top = 117.572
-margin_bottom = 160.572
+[node name="Paused" type="Label" parent="PauseOverlay"]
+margin_left = 61.8803
+margin_top = 60.2936
+margin_right = 171.88
+margin_bottom = 78.2936
+custom_fonts/font = SubResource( 1 )
 text = "Paused"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="PauseMenu" type="VBoxContainer" parent="PauseOverlay"]
 anchor_left = 0.5
@@ -53,12 +63,15 @@ __meta__ = {
 margin_right = 449.0
 margin_bottom = 60.0
 size_flags_vertical = 3
+custom_colors/font_color = Color( 0.313726, 0.909804, 0.419608, 1 )
 text = "Retry"
+flat = true
 script = ExtResource( 6 )
 
 [node name="BackButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 3 )]
 margin_top = 64.0
 margin_bottom = 124.0
+custom_colors/font_color = Color( 0.313726, 0.909804, 0.419608, 1 )
 
 [node name="QuitButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 4 )]
 margin_top = 128.0

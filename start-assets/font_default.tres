@@ -1,7 +1,8 @@
 [gd_resource type="DynamicFont" load_steps=2 format=2]
 
-[ext_resource path="res://start-assets/montserrat_extrabold.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://start-assets/Artiste Std.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 24
+size = 25
+outline_color = Color( 0.137255, 0.568627, 0.0980392, 1 )
 font_data = ExtResource( 1 )
