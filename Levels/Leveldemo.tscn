@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Playersht/Playerdemo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://start-assets/tileset.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Coin/Portalleveltest.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Shootableenemy/Moveandshoot.tscn" type="PackedScene" id=9]
 [ext_resource path="res://start-assets/background.png" type="Texture" id=10]
+[ext_resource path="res://Naville-Regular DEMO.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Basketball.otf" type="DynamicFontData" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -36,6 +38,15 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+outline_color = Color( 0.960784, 0.054902, 0.054902, 1 )
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 12 )
 
 [node name="Leveldemo" type="Node2D"]
 
@@ -90,3 +101,32 @@ position = Vector2( 792, -248 )
 
 [node name="Portal" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2064, 192 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 96.0
+margin_top = 56.0
+margin_right = 839.0
+margin_bottom = 272.0
+custom_fonts/font = SubResource( 3 )
+text = "Press Up, Down, right, left
+Space to shoot, hold for continuous shooting
+w,s to adjust angle
+esc to pause
+"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 1856.0
+margin_top = -56.0
+margin_right = 2104.0
+margin_bottom = 160.0
+custom_fonts/font = SubResource( 4 )
+text = "4 coins
+"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

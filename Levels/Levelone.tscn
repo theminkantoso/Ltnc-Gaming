@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Playersht/Player1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/ground-clipart-transparent-10-transparent.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://start-assets/atmosphere-sky-space-astronomy-night-space-png-pic.jpg" type="Texture" id=7]
 [ext_resource path="res://MenuScreen/PauseMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Coin/Light.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Basketball.otf" type="DynamicFontData" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
@@ -116,6 +117,10 @@ points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 3/z_index = 0
+
+[sub_resource type="DynamicFont" id=7]
+size = 30
+font_data = ExtResource( 10 )
 
 [node name="Levelone" type="Node2D"]
 __meta__ = {
@@ -234,3 +239,14 @@ position = Vector2( 2237.2, -320.143 )
 
 [node name="Light2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 4031.8, -363.312 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 5901.25
+margin_top = -233.114
+margin_right = 5989.25
+margin_bottom = -202.114
+custom_fonts/font = SubResource( 7 )
+text = "16 coins"
+__meta__ = {
+"_edit_use_anchors_": false
+}
