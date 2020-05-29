@@ -3,7 +3,7 @@ extends KinematicBody2D
 var bullet = preload("res://Bulletshot//Bullet.tscn")
 
 
-export var speed = 150
+export var speed = 200
 var motion = Vector2()
 export var gravity = 10
 export var jump_power = -400
@@ -112,7 +112,7 @@ func _physics_process(delta):
 	motion = move_and_slide(motion)
 func check():
 	if (coincount == coinlimit):
-		get_tree().get_root().get_node("Levelone/Barrier").queue_free()
+		get_tree().get_root().get_node("Levelthree/Barrier").queue_free()
 
 func shoot():
 	if(shotlimit > 0):

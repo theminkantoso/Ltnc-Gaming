@@ -185,9 +185,6 @@ position = Vector2( 2624, 472 )
 [node name="Enemy5" parent="." instance=ExtResource( 4 )]
 position = Vector2( 3776, 280 )
 
-[node name="Enemy6" parent="." instance=ExtResource( 4 )]
-position = Vector2( 4720, 536 )
-
 [node name="Enemy7" parent="." instance=ExtResource( 4 )]
 position = Vector2( 4968, 536 )
 
