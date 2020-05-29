@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Playersht/Player1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/ground-clipart-transparent-10-transparent.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Coin/Portallevel1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://start-assets/atmosphere-sky-space-astronomy-night-space-png-pic.jpg" type="Texture" id=7]
 [ext_resource path="res://MenuScreen/PauseMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Coin/Light.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
@@ -227,3 +228,9 @@ position = Vector2( 6112, -56 )
 [node name="Barrier" parent="." instance=ExtResource( 5 )]
 position = Vector2( 5952.63, -213.842 )
 scale = Vector2( 0.298164, 0.486712 )
+
+[node name="Light" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2237.2, -320.143 )
+
+[node name="Light2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4031.8, -363.312 )

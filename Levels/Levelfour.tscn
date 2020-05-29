@@ -8,7 +8,7 @@
 [ext_resource path="res://Shootableenemy/Enemygun.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Coin/Coin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://icon.png" type="Texture" id=8]
-[ext_resource path="res://start-assets/light.png" type="Texture" id=9]
+[ext_resource path="res://Coin/Light.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Coin/Barrier.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Coin/Portallevel4.tscn" type="PackedScene" id=11]
 [ext_resource path="res://start-assets/starry-night-png-background-3.png" type="Texture" id=12]
@@ -216,6 +216,9 @@ __meta__ = {
 position = Vector2( 2620.69, -88.3677 )
 scale = Vector2( 0.7, 0.7 )
 
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 123.938, -724.693 )
+
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1510.33, -101.296 )
 
@@ -303,31 +306,6 @@ scale = Vector2( 0.5, 0.5 )
 position = Vector2( 2323.48, 108.441 )
 scale = Vector2( 0.7, 0.7 )
 
-[node name="light" type="Sprite" parent="."]
-position = Vector2( 1026.92, -1007.6 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 9 )
-
-[node name="light2" type="Sprite" parent="."]
-position = Vector2( 4368.79, -730.009 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 9 )
-
-[node name="light3" type="Sprite" parent="."]
-position = Vector2( 4321.93, 751.661 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 9 )
-
-[node name="light4" type="Sprite" parent="."]
-position = Vector2( 2339.16, 841.787 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 9 )
-
-[node name="light5" type="Sprite" parent="."]
-position = Vector2( 760.15, 809.342 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 9 )
-
 [node name="icon" type="Sprite" parent="."]
 position = Vector2( 1047.46, -153.746 )
 scale = Vector2( 0.5, 0.5 )
@@ -342,8 +320,14 @@ position = Vector2( 4332.94, 54.2645 )
 [node name="Coin17" parent="." instance=ExtResource( 7 )]
 position = Vector2( 4330.29, -75.5872 )
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 123.938, -724.693 )
-
 [node name="Portal" parent="." instance=ExtResource( 11 )]
 position = Vector2( 2328.73, 498.933 )
+
+[node name="Light" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4450.32, -690.211 )
+
+[node name="Light2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2432.97, -778.732 )
+
+[node name="Light3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1394.02, -774.073 )

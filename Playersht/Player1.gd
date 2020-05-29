@@ -8,7 +8,7 @@ var motion = Vector2()
 export var gravity = 10
 export var jump_power = -400
 export var delay = 0.2
-var jump_bounce = - 100
+
 var shooting = false
 var waited = 0
 var sudden_decent = 400
@@ -55,6 +55,7 @@ func _input(event):
 	else:
 		motion.x = 0
 	if Input.is_action_pressed("ui_up"):
+		
 		jump = true
 		decent = false
 		motion.y =  jump_power
@@ -65,7 +66,7 @@ func _input(event):
 	else:
 		jump = false
 		decent = false
-		$"Fly (2)".rotation_degrees = 0
+		
 	if Input.is_action_pressed("angle_up"):
 		angle.y -= shotspeed * (sqrt(3) / 4)
 	elif Input.is_action_just_released("angle_up"):
@@ -86,12 +87,13 @@ func animation_change(left, jump, decent):
 			$"Fly (2)".rotation_degrees = -20
 		else:
 			$"Fly (2)".rotation_degrees = 20
-	if(jump == false && decent == true):
+	elif(jump == false && decent == true):
 		if(left == false):
 			$"Fly (2)".rotation_degrees = 20
 		else:
 			$"Fly (2)".rotation_degrees = -20
-			
+	else:
+		$"Fly (2)".rotation_degrees = 0		
 func _process(delta):
 	if(shooting && waited > delay):
 		rapid_fire()

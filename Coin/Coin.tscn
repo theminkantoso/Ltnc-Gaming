@@ -4,7 +4,7 @@
 [ext_resource path="res://Coin/Coin.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 33.7607
+radius = 40.05
 
 [sub_resource type="Animation" id=2]
 resource_name = "Bounce"
@@ -63,5 +63,4 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Bounce = SubResource( 2 )
-[connection signal="area_entered" from="." to="." method="_on_Coin_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]

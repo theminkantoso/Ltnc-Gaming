@@ -26,7 +26,7 @@ polygon = PoolVector2Array( -4, -40, 12, -40, 16, -32, 20, -20, 24, -16, 44, -16
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -64 )
 current = true
-zoom = Vector2( 1.2, 1.2 )
+zoom = Vector2( 1.4, 1.4 )
 limit_left = 0
 limit_top = -762
 limit_right = 4757
@@ -45,7 +45,7 @@ __meta__ = {
 
 [node name="Sound" type="Node2D" parent="."]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sound"]
+[node name="Shot" type="AudioStreamPlayer2D" parent="Sound"]
 stream = ExtResource( 3 )
 [connection signal="area_entered" from="Enemy_detector" to="." method="_on_Enemy_detector_area_entered"]
 [connection signal="body_entered" from="Enemy_detector" to="." method="_on_Enemy_detector_body_entered"]

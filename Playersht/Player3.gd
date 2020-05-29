@@ -8,7 +8,7 @@ var motion = Vector2()
 export var gravity = 10
 export var jump_power = -400
 export var delay = 0.2
-var jump_bounce = - 100
+
 var shooting = false
 var waited = 0
 var sudden_decent = 400
@@ -18,7 +18,7 @@ const shotspeed = 500
 var angle = Vector2(shotspeed * 0.6, 0)
 var shotlimit = 50
 var coincount = 0
-var coinlimit = 13
+var coinlimit = 16
 var left = false
 var jump = false
 var decent = false
@@ -29,11 +29,13 @@ func _ready():
 	set_physics_process(true) # Replace with function body.
 	
 func _on_Enemy_detector_body_entered(body: KinematicBody2D) -> void:
+	queue_free()
 	dead()
-func dead() -> void:	
+
+func dead():	
+	
 	get_tree().reload_current_scene()
-
-
+	
 
 func _on_Enemy_detector_area_entered(area: Area2D):
 	coincount += 1
@@ -53,6 +55,7 @@ func _input(event):
 	else:
 		motion.x = 0
 	if Input.is_action_pressed("ui_up"):
+		
 		jump = true
 		decent = false
 		motion.y =  jump_power
@@ -63,7 +66,7 @@ func _input(event):
 	else:
 		jump = false
 		decent = false
-		$"Fly (2)".rotation_degrees = 0
+		
 	if Input.is_action_pressed("angle_up"):
 		angle.y -= shotspeed * (sqrt(3) / 4)
 	elif Input.is_action_just_released("angle_up"):
@@ -84,12 +87,13 @@ func animation_change(left, jump, decent):
 			$"Fly (2)".rotation_degrees = -20
 		else:
 			$"Fly (2)".rotation_degrees = 20
-	if(jump == false && decent == true):
+	elif(jump == false && decent == true):
 		if(left == false):
 			$"Fly (2)".rotation_degrees = 20
 		else:
 			$"Fly (2)".rotation_degrees = -20
-			
+	else:
+		$"Fly (2)".rotation_degrees = 0		
 func _process(delta):
 	if(shooting && waited > delay):
 		rapid_fire()
@@ -109,10 +113,7 @@ func _physics_process(delta):
 func check():
 	if (coincount == coinlimit):
 		get_tree().get_root().get_node("Levelone/Barrier").queue_free()
-#func check():
-	#var barrierInstance = barrier.instance()
-	#if (coincount >= coinlimit):
-		#barrierInstance.queue_free()
+
 func shoot():
 	if(shotlimit > 0):
 		var bulletInstance = bullet.instance()
@@ -125,7 +126,9 @@ func shoot():
 		bulletInstance.position = Vector2(position.x+ index,position.y)
 		bulletInstance.shoot(angle)
 		get_tree().get_root().add_child(bulletInstance)
-		var musicnode = $Sound/AudioStreamPlayer2D
-		musicnode.play()
 		shotlimit -= 1
+		var musicnode = $Sound/Shot
+		musicnode.play()
 	
+	
+
